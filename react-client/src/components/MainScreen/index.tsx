@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import SockJS from 'sockjs-client';
 import { over } from 'stompjs';
+import { ChatMessages } from '../ChatMessages';
+import { Chatbar } from '../Chatbar';
+import { Navbar } from '../Navbar';
+import { SendButton } from '../SendButton';
 import { Sidebar } from '../Sidebar';
+import { WelcomeScreen } from '../WelcomeScreen';
 
 let stompClient: any = null;
 
@@ -79,6 +84,7 @@ export function Main() {
 		const { value } = event.target;
 		setUserData({ ...userData, "message": value });
 	}
+
 	const sendValue = () => {
 		if (stompClient) {
 			const chatMessage = {
@@ -127,71 +133,35 @@ export function Main() {
 					setTab={setTab}
 					privateChats={privateChats}
 				/>
-				<section className="mt-24 mx-4 max-h-full">
+				<section className="w-full flex flex-col">
+					<div className="flex flex-1 justify-between">
+						<Navbar />
+					</div>
 					{userData.connected ?
-						<div style={{
-							width: '75vw',
-						}} className="mt-12 flex flex-auto">
+						<div className="flex flex-auto mt-12">
 							{tab === "CHATROOM" && <div className="w-full mx-10 ">
-								<ul className="chat-messages">
-									{publicChats.map((chat: any, index) => (
-										<li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
-											{chat.senderName !== userData.username
-												&& <div className="avatar uppercase text-left">
-													{chat.senderName} <small className="ml-6 mt-1 font-normal text-zinc-400">12/12/2002 16:20</small>
-												</div>
-												|| <div className="avatar self uppercase text-left">
-													{chat.senderName} <small className="ml-6 mt-1 font-normal text-zinc-400">12/12/2002 16:20</small>
-												</div>
-											}
-											<div className="message-data">{chat.message}</div>
-										</li>
-									))}
-								</ul>
-								<div className="send-message">
-									<input type="text" className="input-message pl-6" placeholder={`Send a message to @everyone`} value={userData.message} onChange={handleMessage} />
-									<button type="button" className="bg-zinc-200 text-zinc-950 rounded-xl ml-4" onClick={sendValue}>SEND</button>
-								</div>
+								<ChatMessages chats={publicChats} userData={userData} />
 							</div>}
 							{tab !== "CHATROOM" && <div className="chat-content">
-								<div className="chat-messages">
-									{[...privateChats.get(tab)].map((chat, index) => (
-										<li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
-											{chat.senderName !== userData.username
-												&& <div className="avatar uppercase text-left">
-													{chat.senderName} <small className="ml-6 mt-1 font-normal text-zinc-400">12/12/2002 16:20</small>
-												</div>
-												|| <div className="avatar self uppercase text-left">
-													{chat.senderName} <small className="ml-6 mt-1 font-normal text-zinc-400">12/12/2002 16:20</small>
-												</div>
-											}
-											<div className="message-data">{chat.message}</div>
-										</li>
-									))}
-								</div>
-
-								<div className="send-message">
-									<input type="text" className="input-message pl-6" placeholder={`Send a message to @${tab}`} value={userData.message} onChange={handleMessage} />
-									<button type="button" className="bg-zinc-200 text-zinc-950 rounded-xl ml-4" onClick={sendPrivateValue}>SEND</button>
-								</div>
+								<ChatMessages chats={privateChats.get(tab)} userData={userData} />
 							</div>}
+							<SendButton
+								tab={tab}
+								userData={userData}
+								handleMessage={handleMessage}
+								sendValue={sendValue}
+								sendPrivateValue={sendPrivateValue}
+							/>
 						</div>
 						:
-						<div className="register w-1/3 justify-between rounded-md">
-							<input
-								id="user-name"
-								className='bg-zinc-100 shadow-2xl rounded-md w-full'
-								placeholder="Enter your name"
-								name="userName"
-								value={userData.username}
-								onChange={handleUsername}
-							/>
-							<button type="button" className="bg-zinc-600 ml-4 shadow-2xl rounded-md" onClick={registerUser}>
-								CONNECT
-							</button>
-						</div>
+						<WelcomeScreen
+							handleUsername={handleUsername}
+							registerUser={registerUser}
+							userData={userData}
+						/>
 					}
 				</section>
+				<Chatbar />
 			</div>
 		</main >
 	)

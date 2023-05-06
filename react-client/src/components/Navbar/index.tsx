@@ -2,10 +2,8 @@ import { Repeat } from "lucide-react";
 
 export function Navbar() {
 	return (
-		<nav style={{
-			width: '75vw',
-		}} className="bg-zinc-700 border-b border-zinc-800 shadow-xl px-6 py-1 flex justify-between fixed top-0 right-0">
-			<div className="flex items-center gap-4">
+		<nav className="bg-zinc-700 border-b border-zinc-800 shadow-xl px-6 py-1 min-w-full flex justify-between fixed top-0">
+			<div className="flex items-center">
 				<div className="flex flex-col mb-4">
 					<span className="text-4xl text-zinc-500">@</span>
 				</div>
