@@ -1,0 +1,1 @@
+interface Plus { size: number; className: string; }

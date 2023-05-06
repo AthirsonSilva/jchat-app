@@ -1,11 +1,11 @@
-import React from 'react'
-import ChatRoom from './components/ChatRoom'
+import { Main } from "./components/MainScreen";
 
-const App = () => {
-  return (
-    <ChatRoom />
-  )
+export default function Page() {
+	return (
+		<div className="h-screen flex flex-col">
+			<div className="flex flex-1 justify-between">
+				<Main />
+			</div>
+		</div>
+	)
 }
-
-export default App;
-
