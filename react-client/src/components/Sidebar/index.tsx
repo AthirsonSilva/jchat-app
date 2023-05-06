@@ -23,6 +23,9 @@ export function Sidebar({ tab, setTab, privateChats }: { tab: string, setTab: an
 				{[...privateChats.keys() as any].map((name, index) => (
 					<span onClick={() => { setTab(name) }} className={`text-sm text-zinc-950 member ${tab === name && "active"}`} key={index}>{name}</span>
 				))}
+				<span className="text-sm text-zinc-50 member bottom-0 fixed">
+					All rights reserved &copy; JChat - 2023
+				</span>
 			</nav>
 		</aside>
 	)

@@ -1,4 +1,4 @@
-package com.involveininnovation.chat.config;
+package com.jchat.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
