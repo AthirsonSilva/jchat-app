@@ -11,6 +11,8 @@ Client
 
 ## ReactJS screen
 
+![Screenshot from 2023-05-07 14-06-44](https://user-images.githubusercontent.com/84593887/236692040-3949f7cc-d9e5-4892-a52b-babac321cba3.png)
+
 To start:
     
 ### Client
