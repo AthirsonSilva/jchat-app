@@ -46,8 +46,8 @@ public class MessageServiceImpl implements MessageService {
     public List<Message> fetchPreviousRoomMessages(String room) {
         List<Message> messages = repository.findAllByReceiverName(room, Status.MESSAGE.toString());
 
-        log.info("Previous room messages --> " + messages);
-
-        return messages.stream().filter(message -> message.getStatus().equals(Status.MESSAGE)).collect(Collectors.toList());
+        return messages.stream().filter(message -> message.getStatus()
+                        .equals(Status.MESSAGE))
+                .collect(Collectors.toList());
     }
 }

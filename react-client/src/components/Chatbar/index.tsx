@@ -25,13 +25,13 @@ export function Chatbar() {
 	}, []);
 
 	return (
-		<aside className="w-24 bg-zinc-900 p-6">
+		<aside className="w-16 bg-zinc-900 p-6">
 			<nav className="space-y-5 mt-10">
-				<img src={require("../../assets/logo.png")} alt="" className="mt-16 w-14 h-8 rounded-full" />
+				<img src={require("../../assets/logo.png")} alt="" className="mt-16 w-10 h-4 rounded-full" />
 				<hr className="border-zinc-400" />
 				{randomAvatars.map((name, index) => (
 					<a href="" className="rounded-md py-2 flex items-center gap-4 text-sm font-semibold" key={index}>
-						<img src={name.avatar} alt="" className="w-10 h-10 rounded-full" />
+						<img src={name.avatar} alt="" className="w-4 h-4 rounded-full" />
 					</a>
 				))}
 			</nav>

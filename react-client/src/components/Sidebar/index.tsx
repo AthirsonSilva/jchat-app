@@ -3,7 +3,7 @@ import { BsSpeedometer2 } from 'react-icons/bs'
 
 export function Sidebar({ tab, setTab, privateChats }: { tab: string, setTab: any, privateChats: Map<any, any> }) {
 	return (
-		<aside className="w-96 bg-zinc-800 p-6">
+		<aside className="w-80 bg-zinc-800 p-6">
 			<input type="text" className="bg-zinc-700/50 rounded-md p-2 w-full text-sm font-semibold text-zinc-200" placeholder="Search" />
 			<nav className="space-y-5 mt-10">
 				<a href="" className="bg-zinc-200/40 rounded-md p-2 flex items-center gap-4 text-sm font-semibold text-zinc-200">
@@ -23,9 +23,9 @@ export function Sidebar({ tab, setTab, privateChats }: { tab: string, setTab: an
 				{[...privateChats.keys() as any].map((name, index) => (
 					<span onClick={() => { setTab(name) }} className={`text-sm text-zinc-950 member ${tab === name && "active"}`} key={index}>{name}</span>
 				))}
-				<span className="text-sm text-zinc-50 member bottom-0 fixed">
+				<small style={{ fontSize: '8pt' }} className="text-zinc-50 mr-4 member bottom-0 fixed">
 					All rights reserved &copy; JChat - 2023
-				</span>
+				</small>
 			</nav>
 		</aside>
 	)

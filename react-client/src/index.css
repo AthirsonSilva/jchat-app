@@ -71,14 +71,14 @@ button {
 .input-message {
 	width: 88%;
 	border-radius: 10px;
-	margin-left: 1.1vw;
+	margin-left: 2vw;
 	background-color: rgba(119, 119, 119, 0.247);
 	color: #fff;
 }
 
 .send-button {
 	width: 10%;
-	border-radius: 50px;
+	margin-right: -0.5vw;
 	cursor: pointer;
 }
 
@@ -116,7 +116,7 @@ button {
 	padding: 5px;
 	color: #fff;
 	font-weight: 500;
-	font-size: 14pt;
+	font-size: 12pt;
 }
 
 .message.self {
@@ -125,7 +125,7 @@ button {
 
 .avatar {
 	height: 50px;
-	font-size: 20pt;
+	font-size: 14pt;
 	color: #fff;
 	font-weight: 700;
 	display: flex;

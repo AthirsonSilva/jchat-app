@@ -38,29 +38,30 @@ export function ChatMessages({ userData, messages, room }: { userData: any, mess
 
 	useEffect(() => {
 		fetchPreviousMessages()
-	}, [messages])
+	}, [messages, messages.length])
 
 	return (
-		<div>
-			<span className="text-4xl italic ml-8 font-bold text-zinc-100">
+		<div className="mb-16">
+			< span className="text-3xl italic ml-8 font-bold text-zinc-100" >
 				{room === "CHATROOM" ?
 					<>Welcome to the chatroom, <strong className="uppercase">{userData.username}</strong>!</>
 					: `Private chat with ${room === userData.username ?
 						"yourself"
 						: room
-					}`}
-			</span>
+					}`
+				}
+			</span >
 			<ul className="chat-messages overflow-y-scroll w-full">
 				{chatMessages.map((message: any, index) => (
 					<li className={`message ${message.senderName === userData.username && "self"}`} key={index}>
 						{message.senderName !== userData.username
 							&& <div className="avatar uppercase text-left">
-								{message.senderName} <small className="ml-6 mt-1 font-medium text-sm text-zinc-400">
+								{message.senderName} <small className="ml-6 mt-1 text-sm text-zinc-400">
 									{formatTime(message.date)}
 								</small>
 							</div>
 							|| <div className="avatar self uppercase text-left">
-								{message.senderName} <small className="ml-6 mt-1 font-medium text-sm text-zinc-400">
+								{message.senderName} <small className="ml-6 mt-1 text-sm text-zinc-400">
 									{formatTime(message.date)}
 								</small>
 							</div>
@@ -69,6 +70,6 @@ export function ChatMessages({ userData, messages, room }: { userData: any, mess
 					</li>
 				))}
 			</ul>
-		</div>
+		</div >
 	)
 }

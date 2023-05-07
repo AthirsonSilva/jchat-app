@@ -2,7 +2,7 @@ export function WelcomeScreen({ userData, handleUsername, registerUser }: any) {
 	return (
 		<div className="register w-1/3 flex flex-col rounded-md">
 			<div className="mb-4">
-				<h1 className="text-3xl font-bold text-zinc-100">Welcome to Zinc Chat</h1>
+				<h1 className="text-3xl font-bold text-zinc-100">Welcome to JChat</h1>
 				<p className="text-zinc-100 text-md">Please enter your name to continue</p>
 			</div>
 			<div className="flex flex-row">

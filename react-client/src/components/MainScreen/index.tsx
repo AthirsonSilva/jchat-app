@@ -73,7 +73,9 @@ export function Main() {
 			console.log("existing private chat")
 
 			privateChats.get(payloadData.senderName).push(payloadData)
-			setPrivateChats(new Map(privateChats))
+			setPrivateChats(new Map([...privateChats as any]))
+
+			console.log("chat messages: ", privateChats.get(payloadData.senderName))
 		} else {
 			console.log("new private chat")
 
@@ -119,6 +121,7 @@ export function Main() {
 
 			stompClient.send("/app/private-message", {}, JSON.stringify(chatMessage))
 			setUserData({ ...userData, "content": "" })
+			onPrivateMessage({ body: JSON.stringify(chatMessage) })
 		}
 	}
 
