@@ -1,2 +1,6 @@
-react-client/node_modules
+/node_modules/
 /.idea/
+/.vscode/
+/.DS_Store
+/.env
+
