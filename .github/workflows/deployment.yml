@@ -1,4 +1,4 @@
-name: Personal portfolio deploy workflow
+name: JChat App Deployment
 
 on:
   schedule:
