@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import SockJS from 'sockjs-client'
+import SockJS from "sockjs-client/dist/sockjs"
 import { over } from 'stompjs'
 import { Message, UserData } from '../../@types/types'
+import { SERVER_URL } from '../../constants/variables'
 import { ChatMessages } from '../ChatMessages'
-import { Chatbar } from '../Chatbar'
 import { Navbar } from '../Navbar'
 import { SendButton } from '../SendMessage'
 import { Sidebar } from '../Sidebar'
@@ -23,7 +23,7 @@ export function Main() {
 	})
 
 	const connect = () => {
-		const Sock = new SockJS('http://localhost:8080/ws')
+		const Sock = new SockJS(`${SERVER_URL}/ws`)
 
 		stompClient = over(Sock)
 		stompClient.connect({}, onConnected, onError)
@@ -178,7 +178,6 @@ export function Main() {
 						/>
 					}
 				</section>
-				<Chatbar />
 			</div>
 		</main >
 	)

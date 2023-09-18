@@ -1,5 +1,6 @@
 import { Message } from '@/@types/types'
 import { useEffect, useState } from 'react'
+import { SERVER_URL } from '../../constants/variables'
 
 export function ChatMessages({ userData, messages, room }: { userData: any, messages: Array<any>, room: string }) {
 	const [chatMessages, setChatMessages] = useState<Array<Message>>([])
@@ -17,7 +18,7 @@ export function ChatMessages({ userData, messages, room }: { userData: any, mess
 	}
 
 	const fetchPreviousMessages = async () => {
-		const request = await fetch(`http://localhost:8080/api/v1/messages?room=${room === "CHATROOM" ? "public" : userData.username
+		const request = await fetch(`${SERVER_URL}/api/v1/messages?room=${room === "CHATROOM" ? "public" : userData.username
 			}`, {
 			method: "GET",
 			headers: {
@@ -53,19 +54,12 @@ export function ChatMessages({ userData, messages, room }: { userData: any, mess
 			</span >
 			<ul className="chat-messages overflow-y-scroll w-full">
 				{chatMessages.map((message: any, index) => (
-					<li className={`message ${message.senderName === userData.username && "self"}`} key={index}>
-						{message.senderName !== userData.username
-							&& <div className="avatar uppercase text-left">
-								{message.senderName} <small className="ml-6 mt-1 text-sm text-zinc-400">
-									{formatTime(message.date)}
-								</small>
-							</div>
-							|| <div className="avatar self uppercase text-left">
-								{message.senderName} <small className="ml-6 mt-1 text-sm text-zinc-400">
-									{formatTime(message.date)}
-								</small>
-							</div>
-						}
+					<li className={`message ${message.senderName === userData.username && "bg-white rounded-md"}`} key={index}>
+						<div className="avatar self uppercase text-left">
+							{message.senderName} <small className="ml-6 mt-1 text-sm text-zinc-400">
+								{formatTime(message.date)}
+							</small>
+						</div>
 						<div className="message-data">{message.content}</div>
 					</li>
 				))}

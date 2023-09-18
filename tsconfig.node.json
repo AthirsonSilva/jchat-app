@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"composite": true,
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": [
+		"vite.config.ts",
+		"sockjs-client.d.ts",
+	]
+}

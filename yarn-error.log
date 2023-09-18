@@ -1,0 +1,80 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn install
+
+PATH: 
+  /home/azilzor/.local/share/pnpm:/home/azilzor/.bun/bin:/home/azilzor/.bun/bin:/usr/local/bin:/usr/bin:/var/lib/snapd/snap/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.6.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/home/azilzor/.cache/yarn/v6/npm-glob-parent-6.0.2-6d237d99083950c79290f24c7642a3de9a28f9e3-integrity/node_modules/glob-parent/LICENSE' -> '/home/azilzor/Workspace/jchat-app/node_modules/tailwindcss/node_modules/glob-parent/LICENSE'
+
+npm manifest: 
+  {
+    "name": "jchatapp",
+    "author": "Athirson",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@testing-library/jest-dom": "^5.16.1",
+      "@testing-library/react": "^12.1.2",
+      "@testing-library/user-event": "^13.5.0",
+      "@types/react": "^18.2.5",
+      "@types/react-dom": "^18.2.3",
+      "@types/sockjs-client": "^1.5.1",
+      "@types/stompjs": "^2.3.5",
+      "lucide-react": "^0.206.0",
+      "net": "^1.0.2",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-feather": "^2.0.10",
+      "react-icons": "^4.8.0",
+      "react-scripts": "5.0.0",
+      "sockjs-client": "^1.5.2",
+      "stompjs": "^2.3.3",
+      "tailwindcss": "^3.3.2",
+      "typescript": "^5.0.4",
+      "web-vitals": "^2.1.2"
+    },
+    "proxy": "http://localhost:8080",
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "@faker-js/faker": "^7.6.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

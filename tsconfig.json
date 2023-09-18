@@ -1,22 +1,27 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "ESNext",
 		"lib": [
 			"dom",
-			"dom.iterable"
+			"dom.iterable",
+			"esnext"
 		],
-		"allowJs": true,
+		"allowJs": false,
 		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "ES2015",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
+		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"jsx": "react-jsx",
+		"types": [
+			"vite/client",
+		],
 		"paths": {
 			"@/*": [
 				"./src/*"
@@ -28,10 +33,16 @@
 		]
 	},
 	"include": [
+		"src",
 		"**/*.ts",
 		"**/*.tsx"
 	],
 	"exclude": [
 		"node_modules"
+	],
+	"references": [
+		{
+			"path": "./tsconfig.node.json"
+		}
 	]
 }
